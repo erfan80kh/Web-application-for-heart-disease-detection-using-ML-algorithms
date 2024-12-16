@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پیش‌بینی بیماری قلبی</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>پیش‌بینی بیماری قلبی</h1>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="age">سن</label>
+                <input type="number" id="age" name="age" required>
+            </div>
+
+            <div class="form-group">
+                <label for="sex">جنسیت</label>
+                <select id="sex" name="sex" required>
+                    <option value="Male">مرد</option>
+                    <option value="Female">زن</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="cp">نوع درد قفسه سینه</label>
+                <select id="cp" name="cp" required>
+                    <option value="Typical angina">درد معمولی</option>
+                    <option value="Atypical angina">درد غیرمعمولی</option>
+                    <option value="Non-anginal pain">درد غیر قلبی</option>
+                    <option value="Asymptomatic">بی‌علامت</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="resting_blood_pressure">فشار خون در استراحت (mmHg)</label>
+                <input type="number" id="resting_blood_pressure" name="resting_blood_pressure" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cholesterol">کلسترول (mg/dl)</label>
+                <input type="number" id="cholesterol" name="cholesterol" required>
+            </div>
+
+            <div class="form-group">
+                <label for="fbs">قند خون</label>
+                <select id="fbs" name="fbs" required>
+                    <option value="Lower than 120 mg/ml">کمتر از 120</option>
+                    <option value="Greater than 120 mg/ml">بیشتر از 120</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="restecg">نتیجه تست ECG</label>
+                <select id="restecg" name="rest_ecg" required>
+                    <option value="Normal">طبیعی</option>
+                    <option value="ST-T wave abnormality">اختلال ST-T</option>
+                    <option value="Left ventricular hypertrophy">هیپرتروفی بطن چپ</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Max_heart_rate">بیشترین ضربان قلب</label>
+                <input type="number" id="Max_heart_rate" name="Max_heart_rate" required>
+            </div>
+
+            <div class="form-group">
+                <label for="exang">درد قفسه سینه ناشی از ورزش</label>
+                <select id="exang" name="exang" required>
+                    <option value="Yes">بله</option>
+                    <option value="No">خیر</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="oldpeak">کاهش ST</label>
+                <input type="number" step="0.1" id="oldpeak" name="oldpeak" required>
+            </div>
+
+            <div class="form-group">
+                <label for="slope">شیب</label>
+                <select id="slope" name="slope" required>
+                    <option value="Up">افزایشی</option>
+                    <option value="Flat">مسطح</option>
+                    <option value="Down">کاهشی</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="ca">تعداد رگ‌های رنگ شده</label>
+                <input type="number" id="ca" name="ca" required>
+            </div>
+
+            <div class="form-group">
+                <label for="thal">نوع تالاسمی</label>
+                <select id="thal" name="thal" required>
+                    <option value="Normal">طبیعی</option>
+                    <option value="Fixed Defect">اختلال ثابت</option>
+                    <option value="Reversable Defect">اختلال معکوس</option>
+                </select>
+            </div>
+
+            <button type="submit">پیش‌بینی</button>
+        </form>
+    </div>
+</body>
+</html>
